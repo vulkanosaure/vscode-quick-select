@@ -13,9 +13,12 @@
 	"activationEvents": [
 		"onCommand:extension.selectSingleQuote",
 		"onCommand:extension.selectDoubleQuote",
+		"onCommand:extension.selectDoubleQuoteBack",
 		"onCommand:extension.selectEitherQuote",
+		"onCommand:extension.selectEitherQuoteBack",
 		"onCommand:extension.switchQuotes",
 		"onCommand:extension.selectParenthesis",
+		"onCommand:extension.selectParenthesisBack",
     "onCommand:extension.selectBackTick",
 		"onCommand:extension.selectSquareBrackets",
 		"onCommand:extension.selectCurlyBrackets",
@@ -39,10 +42,22 @@
         "mac": "cmd+k shift+'"
 			},
 			{
+				"command": "extension.selectDoubleQuoteBack",
+				"key": "ctrl+shift+oem_3",
+        "mac": ""
+			},
+			
+			{
 				"command": "extension.selectEitherQuote",
 				"key": "ctrl+k ;",
         "mac": "cmd+k ;"
 			},
+			{
+				"command": "extension.selectEitherQuoteBack",
+				"key": "ctrl+shift+oem_3",
+        "mac": ""
+			},
+			
 			{
 				"command": "extension.switchQuotes",
 				"key": "ctrl+k shift+;",
@@ -53,6 +68,12 @@
 				"key": "ctrl+k shift+9",
         "mac": "cmd+k shift+9"
 			},
+			{
+				"command": "extension.selectParenthesisBack",
+				"key": "ctrl+k shift+9",
+        "mac": "cmd+k shift+9"
+			},
+			
       {
 				"command": "extension.selectBackTick",
 				"key": "ctrl+k `",
