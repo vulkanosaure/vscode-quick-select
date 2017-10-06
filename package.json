@@ -11,109 +11,51 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.selectSingleQuote",
+		
+		"onCommand:extension.goToDeclaration2",
+		"onCommand:extension.selectGroup",
+		"onCommand:extension.expandLineSelection2",
+		"onCommand:extension.format2",
+		"onCommand:extension.copy_no_selection",
+		"onCommand:extension.cut_no_selection",
+		
 		"onCommand:extension.selectDoubleQuote",
 		"onCommand:extension.selectDoubleQuoteBack",
 		"onCommand:extension.selectEitherQuote",
 		"onCommand:extension.selectEitherQuoteBack",
-		"onCommand:extension.switchQuotes",
 		"onCommand:extension.selectParenthesis",
 		"onCommand:extension.selectParenthesisBack",
-    "onCommand:extension.selectBackTick",
 		"onCommand:extension.selectSquareBrackets",
+		"onCommand:extension.selectSquareBracketsBack",
 		"onCommand:extension.selectCurlyBrackets",
-    "onCommand:extension.selectParenthesisOuter",
-		"onCommand:extension.selectSquareBracketsOuter",
-		"onCommand:extension.selectCurlyBracketsOuter",
-		"onCommand:extension.selectAngleBrackets",
-		"onCommand:extension.selectInTag"
+		"onCommand:extension.selectCurlyBracketsBack"
+		
 	],
 	"main": "./out/src/extension",
 	"contributes": {
 		"keybindings": [
-			{
-				"command": "extension.selectSingleQuote",
-				"key": "ctrl+k '",
-        "mac": "cmd+k '"
-			},
-			{
-				"command": "extension.selectDoubleQuote",
-				"key": "ctrl+k shift+'",
-        "mac": "cmd+k shift+'"
-			},
-			{
-				"command": "extension.selectDoubleQuoteBack",
-				"key": "ctrl+shift+oem_3",
-        "mac": ""
-			},
 			
-			{
-				"command": "extension.selectEitherQuote",
-				"key": "ctrl+k ;",
-        "mac": "cmd+k ;"
-			},
-			{
-				"command": "extension.selectEitherQuoteBack",
-				"key": "ctrl+shift+oem_3",
-        "mac": ""
-			},
+			{"key": "ctrl+0", "command": "extension.selectCurlyBrackets", "when" : "editorTextFocus"},
+			{"key": "ctrl+shift+0", "command": "extension.selectCurlyBracketsBack", "when" : "editorTextFocus"},
+
+			{"key": "ctrl+9","command": "extension.selectParenthesis", "when" : "editorTextFocus"},
+			{"key": "ctrl+shift+9","command": "extension.selectParenthesisBack", "when" : "editorTextFocus"},
+
+			{"key": "ctrl+8", "command": "extension.selectSquareBrackets", "when" : "editorTextFocus"},
+			{"key": "ctrl+shift+8", "command": "extension.selectSquareBracketsBack", "when" : "editorTextFocus"},
+
+			{"key": "ctrl+7", "command": "extension.selectDoubleQuote", "when" : "editorTextFocus"},
+			{"key": "ctrl+shift+7", "command": "extension.selectDoubleQuoteBack", "when" : "editorTextFocus"},
+
+
+			{"key": "ctrl+5", "command": "extension.selectGroup"},
+			{"key": "f12", "command": "extension.format2"},
+
+			{"key": "ctrl+c", "command": "extension.copy_no_selection", "when": "editorTextFocus && !editorReadonly && !editorHasSelection"},
+			{"key": "ctrl+x", "command": "extension.cut_no_selection", "when": "editorTextFocus && !editorReadonly && !editorHasSelection"},
+
+			{"key": "f4", "command": "extension.goToDeclaration2", "when": "editorHasDefinitionProvider && !isInEmbeddedEditor" }
 			
-			{
-				"command": "extension.switchQuotes",
-				"key": "ctrl+k shift+;",
-        "mac": "cmd+k shift+;"
-			},
-			{
-				"command": "extension.selectParenthesis",
-				"key": "ctrl+k shift+9",
-        "mac": "cmd+k shift+9"
-			},
-			{
-				"command": "extension.selectParenthesisBack",
-				"key": "ctrl+k shift+9",
-        "mac": "cmd+k shift+9"
-			},
-			
-      {
-				"command": "extension.selectBackTick",
-				"key": "ctrl+k `",
-        "mac": "cmd+k `"
-			},
-			{
-				"command": "extension.selectSquareBrackets",
-				"key": "ctrl+k [",
-        "mac": "cmd+k ["
-			},
-			{
-				"command": "extension.selectCurlyBrackets",
-				"key": "ctrl+k shift+[",
-        "mac": "cmd+k shift+["
-			},
-			{
-				"command": "extension.selectParenthesisOuter",
-				"key": "ctrl+k shift+0",
-        "mac": "cmd+k shift+0"
-			},
-			{
-				"command": "extension.selectSquareBracketsOuter",
-				"key": "ctrl+k ]",
-        "mac": "cmd+k ]"
-			},
-			{
-				"command": "extension.selectCurlyBracketsOuter",
-				"key": "ctrl+k shift+]",
-        "mac": "cmd+k shift+]"
-			},
-			{
-				"command": "extension.selectAngleBrackets",
-				"key": "ctrl+k shift+,",
-        "mac": "cmd+k shift+,"
-			},
-			{
-				"command": "extension.selectInTag",
-				"key": "ctrl+k shift+.",
-        "mac": "cmd+k shift+."
-			}
 		]
 	},
 	"scripts": {
