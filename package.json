@@ -18,6 +18,8 @@
 		"onCommand:extension.format2",
 		"onCommand:extension.copy_no_selection",
 		"onCommand:extension.cut_no_selection",
+		"onCommand:extension.moveLinesDownAction2",
+		"onCommand:extension.moveLinesUpAction2",
 		
 		"onCommand:extension.selectDoubleQuote",
 		"onCommand:extension.selectDoubleQuoteBack",
@@ -54,7 +56,11 @@
 			{"key": "ctrl+c", "command": "extension.copy_no_selection", "when": "editorTextFocus && !editorReadonly && !editorHasSelection"},
 			{"key": "ctrl+x", "command": "extension.cut_no_selection", "when": "editorTextFocus && !editorReadonly && !editorHasSelection"},
 
-			{"key": "f4", "command": "extension.goToDeclaration2", "when": "editorHasDefinitionProvider && !isInEmbeddedEditor" }
+			{"key": "f4", "command": "extension.goToDeclaration2", "when": "editorHasDefinitionProvider && !isInEmbeddedEditor" },
+						
+			{"key" : "alt+up", "command" : "extension.moveLinesUpAction2", "when" : "editorTextFocus && !editorReadonly"},
+			{"key" : "alt+down", "command" : "extension.moveLinesDownAction2", "when" : "editorTextFocus && !editorReadonly"}
+
 			
 		]
 	},

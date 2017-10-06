@@ -16,6 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('extension.copy_no_selection', actionExpandable.bind(_, "editor.action.clipboardCopyAction")));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.cut_no_selection', actionExpandable.bind(_, "editor.action.clipboardCutAction")));
 	
+	context.subscriptions.push(vscode.commands.registerCommand('extension.moveLinesUpAction2', commandsLinkable.bind(_, ["editor.action.moveLinesUpAction", "extension.format2"])));
+	context.subscriptions.push(vscode.commands.registerCommand('extension.moveLinesDownAction2', commandsLinkable.bind(_, ["editor.action.moveLinesDownAction", "extension.format2"])));
+	
 	
 	
 	context.subscriptions.push(vscode.commands.registerCommand('extension.selectDoubleQuote', singleSelect.bind(_, { char: '"', multiline: true })));
@@ -204,7 +207,20 @@ function findSingleSelect(s: vscode.Selection, doc: vscode.TextDocument, char: s
 
 }
 
+function commandsLinkable(tabactions:string[]):void
+{
+	commandsLinkableHandler(tabactions, 0);
+}
 
+function commandsLinkableHandler(tabactions:string[], index:number):void
+{
+	if(index >= tabactions.length) return;
+	var command:string = tabactions[index];
+	vscode.commands.executeCommand(command)
+	.then(() => {
+		commandsLinkableHandler(tabactions, index+1);
+	});
+}
 
 function actionExpandable(action:string):void
 {
