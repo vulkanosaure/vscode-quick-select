@@ -20,6 +20,8 @@
 		"onCommand:extension.cut_no_selection",
 		"onCommand:extension.moveLinesDownAction2",
 		"onCommand:extension.moveLinesUpAction2",
+		"onCommand:extension.cursorDown2",
+		"onCommand:extension.cursorUp2",
 		
 		"onCommand:extension.selectDoubleQuote",
 		"onCommand:extension.selectDoubleQuoteBack",

@@ -19,6 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('extension.moveLinesUpAction2', commandsLinkable.bind(_, ["editor.action.moveLinesUpAction", "extension.format2"])));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.moveLinesDownAction2', commandsLinkable.bind(_, ["editor.action.moveLinesDownAction", "extension.format2"])));
 	
+	context.subscriptions.push(vscode.commands.registerCommand('extension.cursorDown2', cursorMoveTabs.bind(_, "cursorDown")));
+	context.subscriptions.push(vscode.commands.registerCommand('extension.cursorUp2', cursorMoveTabs.bind(_, "cursorUp")));
+	
 	
 	
 	context.subscriptions.push(vscode.commands.registerCommand('extension.selectDoubleQuote', singleSelect.bind(_, { char: '"', multiline: true })));
@@ -205,6 +208,16 @@ function findSingleSelect(s: vscode.Selection, doc: vscode.TextDocument, char: s
   }
   return s;
 
+}
+
+
+function cursorMoveTabs(action:string):void
+{
+	vscode.commands.executeCommand(action)
+	.then(() => {
+		console.log("todo tabs");
+		
+	});
 }
 
 function commandsLinkable(tabactions:string[]):void
